@@ -1,0 +1,16 @@
+{% extends 'mainapp/base.html' %}
+
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+{% block content %}
+    <h1>Преподаватели курса</h1>
+    {% for el in courses %}
+        <div class="alert alert-warning mt-2">
+            <h3>Курс "{{ el.name }}"</h3>
+            <h2>Ведёт {{ el.teacher.first_name }} {{ el.teacher.last_name }}</h2>
+            <p>Email: {{ el.teacher.email }}</p>
+        </div>
+    {% endfor %}
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends 'mainapp/base.html' %}
+
+{% block title %}
+    Записаться на курс
+{% endblock %}
+
+{% block content %}
+    <h1>Записаться на курс</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.first_name }}<br>
+        {{ form.last_name }}<br>
+        {{ form.email }}<br>
+        {{ form.course }}<br>
+        <br>
+        <button type="submit" class="btn btn-success">Записаться</button>
+        <span>{{ error }}</span>
+    </form>
+{% endblock %}

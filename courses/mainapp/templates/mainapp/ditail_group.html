@@ -1,0 +1,29 @@
+{% extends 'mainapp/base.html' %}
+
+{% block title %}
+    Студенты
+{% endblock %}
+
+{% block content %}
+    {% for el in group %}
+      <table class="table">
+      <thead class="thead-light">
+        <tr>
+          <th scope="col">{{ el.name }}</th>
+        </tr>
+      </thead>
+      <tbody>
+      {% for st in student %}
+        {% if st.course.name == el.name %}
+          <tr>
+            <td>{{ st.first_name }} {{ st.last_name }}</td>
+            <td>{{ st.email }}</td>
+          </tr>
+        {% endif %}
+      {% endfor %}
+  </tbody>
+</table>
+    <br>
+    {% endfor %}
+{% endblock %}
+
