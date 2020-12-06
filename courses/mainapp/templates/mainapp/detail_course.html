@@ -7,6 +7,66 @@
 
 {% block content %}
     <h1>{{ course.name }}</h1>
-    <p>{{ course.description }}</p>
+    <br>
+    <h3>Продолжительность курса: {{ course.time }}</h3>
+    <br>
+    <div class="alert alert-warning">
+        <h3>Описание курса</h3>
+        <p>{{ course.description }}</p>
+    </div>
+    <div class="alert alert-success">
+        <h3>Курс ведет: {{ course.teacher }}</h3>
+        <a href="{% url 'teacher' %}"><button class="btn btn-info">Информация о преподавателях</button></a>
+    </div>
+
+    <div class="container">
+      <h2>Основные технологии</h2>
+      <ul class="list-group">
+        <li class="list-group-item list-group-item-success">{{ course.toolbox_1 }}</li>
+        <li class="list-group-item list-group-item-info">{{ course.toolbox_2 }}</li>
+        <li class="list-group-item list-group-item-warning">{{ course.toolbox_3 }}</li>
+        <li class="list-group-item list-group-item-danger">{{ course.toolbox_4 }}</li>
+      </ul>
+    </div>
+    <br>
+    <h3>Теория</h3>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Часть дня</th>
+          <th scope="col">Время</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="bg-warning">
+          <td>{{ course.timetable.lecture }}</td>
+          <td>c {{ course.timetable.time.time_on }} до {{ course.timetable.time.time_off }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Практика</h3>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Часть дня</th>
+          <th scope="col">Время</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="bg-danger">
+          <td>{{ course.timetable.practice }}</td>
+          <td>c {{ course.timetable.time.time_on }} до {{ course.timetable.time.time_off }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <a href="{% url 'create' %}"><button class="btn btn-primary">Записаться на курс</button></a>
+    <br>
+    <br>
+    <br>
+
+
+
 {% endblock %}
 

@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from .models import Courses, Student
 from .forms import StudentForm
 from django.views.generic import DetailView
+from django.contrib import messages
 
 
 def index(request):
@@ -22,7 +23,8 @@ def teacher(request):
 
 def group(request):
     group = Courses.objects.all()
-    return render(request, 'mainapp/group.html', {'title': 'Группы', 'group': group})
+    student = Student.objects.all()
+    return render(request, 'mainapp/group.html', {'title': 'Группы', 'group': group, 'student': student})
 
 
 def ditail_group(request):
@@ -30,9 +32,11 @@ def ditail_group(request):
     student = Student.objects.all()
     return render(request, 'mainapp/ditail_group.html', {'title': 'Ученики', 'group': group, 'student': student})
 
-
-# class GroupDetailView(DetailView):
-#     model = cou
+# здесь менял
+# class StudentDetailView(DetailView):
+#     model = Student
+#     template_name = 'mainapp/ditail_group'
+#     context_object_name = 'student'
 
 
 def create(request):

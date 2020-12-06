@@ -9,7 +9,7 @@
 <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
   <h1 class="display-4">Программирование - наше все</h1>
   <p class="lead">
-      Лучшие курсы, которые вы сможете найти от Егора Чуешкова. С нуля до настоящего воина в мире IT. Гарантия трудоустройства 100%
+      Лучшие курсы, которые вы сможете найти от Егора Чуешкова. С нуля до настоящего воина в мире IT. Гарантия трудоустройства 102%
   </p>
 </div>
 
@@ -24,10 +24,10 @@
       <div class="card-body">
         <h1 class="card-title pricing-card-title">{{ el.time }}</h1>
         <ul class="list-unstyled mt-3 mb-4">
-          <li>10 users included</li>
-          <li>2 GB of storage</li>
-          <li>Email support</li>
-          <li>Help center access</li>
+          <li>{{ el.toolbox_1 }}</li>
+          <li>{{ el.toolbox_2 }}</li>
+          <li>{{ el.toolbox_3 }}</li>
+          <li>{{ el.toolbox_4 }}</li>
         </ul>
         <a href="{% url 'course-detail' el.id %}" class="btn btn-lg btn-block btn-primary">Узнать больше</a>
       </div>

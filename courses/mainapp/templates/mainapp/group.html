@@ -1,18 +1,36 @@
 {% extends 'mainapp/base.html' %}
 
 {% block title %}
-    {{ title }}
+    Студенты
 {% endblock %}
 
 {% block content %}
-    <h1>Группы</h1>
     {% for el in group %}
-        <div class="alert alert-warning mt-2 container">
-            <h3>
-                Группа {{ el.name }}
-                <a href="{% url 'ditail-group' %}"><button class="btn btn-success btn-lg float-right">Ученики группы</button></a>
-            </h3>
-
-        </div>
+      <div class="alert alert-warning mt-2 container">
+          <h2>Группа {{ el.name }}</h2>
+      </div>
+      <table class="table">
+      <thead class="thead-light">
+        <tr>
+          <th scope="col">Ученик</th>
+          <th scope="col">Email</th>
+        </tr>
+      </thead>
+      <tbody>
+      {% for st in student %}
+        {% if st.course.name == el.name %}
+          <tr>
+            <td>{{ st.first_name }} {{ st.last_name }}</td>
+            <td>{{ st.email }}</td>
+          </tr>
+        {% endif %}
+      {% endfor %}
+  </tbody>
+</table>
+    <br>
+    <br>
     {% endfor %}
 {% endblock %}
+
+
+
